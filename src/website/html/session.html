@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../css/sessions.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <title>Sessions</title>
+    <link rel="icon" type="image/x-icon" href="./../assets/isrp_logo.ico">
+</head>
+
+
+<body id="body2">
+
+
+    <nav class="navbar">
+        <div class="navbar-icon">
+            <!-- Icon or logo goes here -->
+            <img src="../assets/isrp_logo.ico" alt="Logo">
+            <label>Illinois Staff Dashboard</label>
+        </div>
+        <div class="buttons">
+            <!-- Search bar goes here -->
+            <button id="hrguide"><i class="ri-survey-fill"></i>HR Guide</button>
+            <button id="discord"><i class="ri-discord-fill"></i>Discord</button>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="/dashboard-DFRRP5ZN7L">Dashboard</a></li>
+            <li class="active"><a href="/sessions-N0XL1S5Q6R">Sessions</a></li>
+            <li><a href="#">Infractions</a></li>
+            <!-- Add more pages as needed -->
+        </ul>
+    </aside>
+
+    <main>
+        <div>
+
+            <label id="sessionControlLabel">Session Controls</label>
+            <br>
+            <label id="disclaimerSession">All data from the session controls are recorded and logged. Spamming or
+                raiding will result in bans.</label>
+            <br>
+
+            <div class="sessionControls">
+                <div class="sessionbuttons">
+                    <button id="startVote">Start Vote</button>
+                    <button id="startSession">Start Session</button>
+                    <button id="fullSession">Full Session</button>
+                    <button id="endSession">End Session</button>
+                </div>
+
+            </div>
+
+            <label id="sessionPanelLabel">Panel</label>
+            <br>
+            <div class="sessionPanel">
+                <div class="sessionPanelButton">
+                    <button id="voteCount">Votes (0/7)</button>
+                    <button id="viewVotes">View Votes</button>
+                    <button id="clearData">Clear Data</button>
+                    <button id="playerCount">Players (0/40)</button>
+                    <button id="queueCount">Queue (0)</button>
+                </div>
+
+                <p1 id="voteUsers">$voteUsers</p1>
+
+            </div>
+
+        </div>
+    </main>
+
+
+    <script>
+
+        document.getElementById("viewVotes").addEventListener("click", function () {
+            // Toggle the visibility of the voteUsers element
+            const voteUsersElement = document.getElementById("voteUsers");
+            voteUsersElement.style.display = (voteUsersElement.style.display === "none") ? "block" : "none";
+        });
+
+        function handleButtonClick(event) {
+            // Prompt the user to enter the password
+            const enteredPassword = window.prompt("Please enter the confirmation password:");
+
+            // Check if the entered password matches the expected password
+            const expectedPassword = "ISRP$$BEST"; // Replace with your actual password
+            if (enteredPassword !== expectedPassword) {
+                alert("Incorrect password. Please get the password from the Directive Team");
+                return; // Exit early if the password is incorrect
+            }
+
+            // Send a request to the server indicating which button was clicked
+            fetch('/send-embed', {
+                method: 'POST',
+                body: JSON.stringify({ buttonId: event.target.id }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+                .then(response => {
+                    if (response.ok) {
+                        // Optionally, display a success message to the user
+                    } else {
+                        // Handle errors
+                    }
+                })
+                .catch(error => {
+                    // Handle errors
+                });
+        }
+
+        // Add event listeners to the buttons
+        document.getElementById("startVote").addEventListener("click", handleButtonClick);
+        document.getElementById("startSession").addEventListener("click", handleButtonClick);
+        document.getElementById("fullSession").addEventListener("click", handleButtonClick);
+        document.getElementById("endSession").addEventListener("click", handleButtonClick);
+        document.getElementById("clearData").addEventListener("click", handleButtonClick);
+
+    </script>
+
+    <script src="../js/sessions.js"></script>
+
+</body>
+
+</html>

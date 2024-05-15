@@ -1,0 +1,190 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+
+#body2 {
+    width: 100%;
+    height: 100vh;
+    background-color: #090a0f;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+}
+
+
+#loadingTag {
+    position: absolute;
+    top: 120px;
+    left: 410px;
+    font-size: 30px;
+    text-align: center;
+    color: rgb(187, 187, 187);
+    font-weight: 900;
+    font-family: 'Arial Narrow';
+    text-align: left;
+}
+#loadingGif {
+    position: absolute;
+    top: 110px;
+    left: 340px; /* Added 'px' unit */
+    width: 60px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Navbar styles */
+.navbar-icon {
+    position: fixed; /* Fix the navbar to the top */
+    top: 0; /* Align it to the top of the viewport */
+    width: 100%; /* Occupy the full width of the screen */
+    display: flex;
+    align-items: center; /* Align items vertically */
+    background-color: #15151f;
+    border: 1px solid #5d5d5d;
+    padding: 25px;
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+.navbar-icon img {
+    height: 40px; /* Adjust as needed */
+}
+
+.navbar-icon label {
+    font-weight: 900;
+    font-family: 'Arial Narrow';
+    margin-top: 0px; /* Adjust margin to move the label up */
+    color: white; /* Set text color */
+    font-size: 20px; /* Adjust font size as needed */
+}
+
+
+.buttons {
+    position: absolute; /* Fix the search bar to the top */
+    top: 0;
+    width: 100%; /* Occupy the full width of the screen */
+    display: flex;
+    justify-content: flex-end; /* Align the search bar to the right */ /* Align items vertically */
+    padding: 30px;
+    right: 0px;
+    margin-top: -15px;
+    z-index: 1000; /* Ensure it's above other content */
+}
+#hrguide {
+    margin-right: 10px;
+    padding: 15px 25px;
+    font-family: 'Arial Narrow';
+    font-weight: 900;
+    font-size: 20px;
+    background: none;
+    border: 2px solid #3558aa;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #3558aa;
+    transition: all 0.3s ease;
+}
+#hrguide i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+#hrguide:hover {
+    background-color: #3558aa;
+    color: white;
+}
+#discord {
+    margin-right: 10px;
+    padding: 15px 25px;
+    font-family: 'Arial Narrow';
+    font-weight: 900;
+    font-size: 20px;
+    background-color: #3558aa;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    transition: all 0.3s ease;
+}
+#discord i {
+    margin-right: 10px;
+    font-size: 20px;
+}
+#discord:hover {
+    color: rgb(190, 190, 190);
+    background-color: #0f2454;
+}
+
+/* Sidebar styles */
+.sidebar {
+    background-color: #15151f;
+    border: 1px solid #5d5d5d;
+    width: 300px;
+    position: fixed;
+    top: 90px;
+    left: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+}
+
+.sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+    width: 100%; /* Ensure full width of the sidebar */
+    text-align: center;
+}
+
+.sidebar-menu li {
+    padding: 10px;
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+
+}
+
+.sidebar-menu li a {
+    border: 1px solid rgb(187, 187, 187);
+    border-radius: 5px;
+    padding: 8px 0; /* Adjust padding to vertically center the text */
+    color: rgb(187, 187, 187);
+    font-size: 20px;
+    font-weight: 900;
+    font-family: 'Arial Narrow';
+    text-decoration: none;
+    position: relative;
+    top: 20px;
+    transition: all 0.3s ease;
+    text-align: center; /* Center-align the text */
+    margin: auto; /* Center the list items horizontally */
+    width: 100%; /* Stretch anchor elements to fill the width */
+    box-sizing: border-box; /* Include padding and border in the width */
+}
+
+
+.sidebar-menu li a:hover {
+    color: #3558aa;
+    border: 1px solid #3558aa;
+}
+
+/* Define styles for icons */
+.sidebar-menu li .icon {
+    margin-right: 10px; /* Add some space between icon and text */
+    font-size: 20px; /* Adjust icon size as needed */
+    color: #3558aa; /* Set icon color */
+}
+
+.active a {
+    color: #3558aa !important;
+    border: 1px solid #3558aa !important;
+}
+

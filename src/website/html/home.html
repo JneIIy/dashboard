@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../css/home.css" />
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <title>Dashboard</title>
+    <link rel="icon" type="image/x-icon" href="./../assets/isrp_logo.ico">
+</head>
+
+
+<body id="body2">
+
+
+    <nav class="navbar">
+        <div class="navbar-icon">
+            <!-- Icon or logo goes here -->
+            <img src="../assets/isrp_logo.ico" alt="Logo">
+            <label>Illinois Staff Dashboard</label>
+        </div>
+        <div class="buttons">
+            <!-- Search bar goes here -->
+            <button id="hrguide"><i class="ri-survey-fill"></i>HR Guide</button>
+            <button id="discord" href="https://discord.com/invite/iisrp"><i class="ri-discord-fill"></i>Discord</button>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <ul class="sidebar-menu">
+            <li class="active"><a href="/dashboard-DFRRP5ZN7L">Dashboard</a></li>
+            <li><a href="/loading-YWQIJIN3BN">Sessions</a></li>
+            <li><a href="#">Infractions</a></li>
+            <!-- Add more pages as needed -->
+        </ul>
+    </aside>
+
+    <main>
+        <label id="Statistics">Statistics</label>
+        <br>
+
+        <div class="serverStats">
+
+
+
+            <div class="counts">
+                <p>
+                    Member Count: $$ram$$
+                    <br>
+                    Booster Count: $$cores$$
+                    <br>
+                    Role Count: $$cpu$$
+                </p>
+            </div>
+
+            <div class="channels">
+                <p>
+                    Categories: $$Categories
+                    <br>
+                    Text Channels: $$TextChannels
+                    <br>
+                    Voice Channels: $$VoiceChannels
+
+                </p>
+            </div>
+
+        </div> <br>
+
+        <label id="BotSettings">Bot Settings</label> <br>
+        <div class="botSettings">
+            <div class="prefixStats">
+                <form id="prefixForm">
+                    <label id="prefixLabel">Prefix</label>
+                    <input type="text" id="prefix" value="-" required oninvalid="this.setCustomValidity('Please enter a prefix.')" oninput="setCustomValidity('')">
+                    <button id="prefixButton">Confirm</button> <br>
+                </form>
+            </div>
+        </div>
+    </main>
+
+
+    <script>
+
+        document.getElementById("prefixForm").onsubmit = function (event) {
+            event.preventDefault(); 
+            let prefix = document.getElementById("prefix").value; 
+
+            document.getElementById("prefixLabel").textContent = `Prefix (${prefix})`; 
+        };
+
+        document.getElementById("prefixButton").onclick = function () {
+            let newPrefix = document.getElementById("prefix").value; 
+            fetch('/update-prefix', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ prefix: newPrefix })
+            });
+
+            document.getElementById("prefixLabel").textContent = `Prefix (${newPrefix})`;
+        };
+    </script>
+
+    <script src="../js/home.js"></script>
+
+</body>
+
+</html>
