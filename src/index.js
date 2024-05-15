@@ -43,6 +43,7 @@ const commandFolders = fs.readdirSync("./src/commands");
     client.handleEvents(eventFiles, "./src/events");
     client.handleCommands(commandFolders, "./src/commands");
     client.prefixCommands(pcommandFolders, './src/pCommands')
+    console.log('Token:', process.env.token);
     client.login(process.env.token)
 })();
 
