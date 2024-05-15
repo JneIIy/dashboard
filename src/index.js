@@ -23,11 +23,6 @@ app.set("view engine", "ejs");
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-process.oauth = new DiscordOauth2({
-    clientId: "1229639454331764787",
-    clientSecret: "xgd5yf7uNHhgm3gT1xOYBZC62UxHsDCv",
-    redirectUri: "http://localhost:3000/callback"
-});
 
 require('dotenv').config();
 
